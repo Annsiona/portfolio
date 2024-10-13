@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        /* Additional CSS for project page */
+        .projects-list {
+            margin-top: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .project h2 {
+            font-size: 1.5rem;
+            color: #00aaff; /* Brighter blue color for project titles */
+        }
+
+        .project p {
+            font-size: 1rem; /* Adjust font size */
+            line-height: 1.5; /* Increase line height for readability */
+            color: #333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .project h2 {
+                font-size: 1.3rem;
+            }
+
+            .project p {
+                font-size: 0.9rem; /* Smaller font size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-a"></i>
+                    <div class="logo-text">Annsiona A S</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="indexx.html">Home</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Resume</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <h1 style="color: lightblue; font-size: 50px; text-transform: uppercase; text-shadow: 2px 2px 5px #000000;">
+  My Projects
+</h1>
+                <div class="projects-list">
+                    <div class="project">
+                        <h2>1. Harvesting Electricity from Road</h2>
+                        <p>Developed a system to generate electricity from road vibrations using piezoelectric sensors. This project aimed at renewable energy generation through innovative means.</p>
+                        <p>This approach can potentially harness energy from the existing road infrastructure, contributing to sustainable energy solutions.</p>
+                    </div>
+                    <div class="project">
+                        <h2>2. Automated Garbage Disposal System</h2>
+                        <p>Created an automated system using Arduino to detect garbage levels and activate disposal mechanisms. This project enhances urban hygiene by automating waste management.</p>
+                        <p>By utilizing sensors, the system optimizes collection routes and schedules, reducing operational costs.</p>
+                    </div>
+                    <div class="project">
+                        <h2>3. IMDB Score Prediction</h2>
+                        <p>Implemented a machine learning model using Python and Kaggle datasets to predict movie ratings. The project utilized algorithms such as linear regression and decision trees for accurate predictions.</p>
+                        <p>This project aims to assist movie producers in making data-driven decisions based on audience preferences.</p>
+                    </div>
+                    <div class="project">
+                        <h2>4. Smart Door Lock System</h2>
+                        <p>Designed an electronic door lock system with a keypad, allowing users to unlock the door with a password. The system features an LCD for user interaction, enhancing security.</p>
+                        <p>The system integrates real-time monitoring, allowing users to control access remotely via a mobile application.</p>
+                    </div>
+                    <div class="project">
+                        <h2>5. Weather App</h2>
+                        <p>Developed a weather application using HTML, CSS, and JavaScript that fetches real-time weather data from an API, providing users with accurate and timely weather updates.</p>
+                        <p>This app allows users to plan their activities based on current weather conditions and forecasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        /** creating button click show hide navbar **/
+        var togglebtn=document.querySelector(".togglebtn");
+        var nav=document.querySelector(".navlinks");
+        var links=document.querySelector(".navlinks li");
+
+        togglebtn.addEventListener("click", function(){
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        })
+    </script>
+</body>
+</html>
