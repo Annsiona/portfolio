@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        /* Additional styles for the bubble background */
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #222; /* Dark background for better visibility */
+        }
+        .bubble {
+            position: absolute;
+            bottom: -100px; /* Start from below the screen */
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none; /* Prevent mouse interaction */
+        }
+        @keyframes bubble-rise {
+            0% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-600px); /* Rise to the top */
+                opacity: 0;
+            }
+        }
+        /* Style for hero picture */
+        .hero-pic {
+            display: flex; /* Enable flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 200px; /* Set height for centering */
+        }
+        .hero-pic img {
+            width: 100%; /* Ensure it fits within the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Prevent distortion */
+            border-radius: 50%; /* Optional: make it circular */
+            border: 5px solid #fff; /* Optional: white border around the image */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional: shadow for depth */
+        }
+
+        .icon {
+            font-size: 2rem; /* Adjust size as needed */
+            margin-right: 15px; /* Space between icons */
+            color: #fff; /* Optional: change color */
+            transition: transform 0.3s; /* Optional: add a transition for hover effect */
+        }
+
+        .icon:hover {
+            transform: scale(1.2); /* Optional: scale up on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Bubbles will be generated here -->
+    <div id="bubble-container"></div>
+
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-a"></i>
+                    <div class="logo-text">Annsiona A S</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="indexx.html">Home</a></li>
+                        <li><a href="C:\Users\annsi\OneDrive\Documents\ANNSIONA RESUME.pdf" target="_blank">Resume</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                 <div class="hero-pic">
+                    <img src="C:\Users\annsi\OneDrive\Documents\image.jpg" alt="profile pic">
+                 </div>
+                 <div class="hero-text">
+                    <h5>Hi I'm <span class="input">Electronics and Communication Engineer</span></h5>
+                    <h1>Annsiona A S</h1>
+                    <p>I am an Electronics and Communication Engineering student with strong electronics skills and proficiency in coding languages such as C, Python, Java, HTML, CSS, and JavaScript. My passion lies in leveraging these skills to develop innovative solutions and explore the latest technology trends.</p>
+
+                    <div class="btn-group">
+                       <a href="C:\Users\annsi\OneDrive\Documents\ANNSIONA RESUME.pdf" download class="btn active">Download CV</a>
+                       <a href="contact.html" class="btn">Contact</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/annsiona-a-s"><i class="fa-brands fa-linkedin icon"></i></a>
+                        <a href="https://www.instagram.com/annsiona_01/profilecard/?igsh=MXFqeW43dzd2Mm9wdA=="><i class="fa-brands fa-instagram icon"></i></a>
+                        <a href="https://github.com/Annsiona"><i class="fa-brands fa-github icon"></i></a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+     </div>
+     <!---typed js for typing text effect-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+     <script>
+        /** creating button click show hide navbar **/
+        var togglebtn=document.querySelector(".togglebtn");
+        var nav=document.querySelector(".navlinks");
+        var links=document.querySelector(".navlinks li");
+
+        togglebtn.addEventListener("click", function(){
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        })
+
+        var typed=new Typed(".input",{
+            strings:["Electronics Engineer", "Innovator", "Tech Enthusiast"],
+            typedSpeed:70,
+            backSpeed:55,
+            loop:true
+        });
+
+        // Function to create bubbles
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 50 + 10; // Random size between 10 and 60
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * window.innerWidth + 'px'; // Random horizontal position
+            
+            // Set a random delay for the animation
+            const animationDuration = Math.random() * 3 + 2; // Random duration between 2 and 5 seconds
+            bubble.style.animation = `bubble-rise ${animationDuration}s linear forwards`; // Set animation with duration
+            bubble.style.backgroundColor = `rgba(255, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`; // Random color
+            
+            // Append the bubble to the container
+            document.getElementById('bubble-container').appendChild(bubble);
+
+            // Remove bubble after animation
+            bubble.addEventListener('animationend', function() {
+                bubble.remove();
+            });
+        }
+
+        // Create bubbles at regular intervals
+        setInterval(createBubble, 800); // Adjust the interval as needed
+     </script>
+</body>
+</html>
